@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Nuevo Cliente</title>
+  <!-- Vincula el CSS de Bootstrap para dar estilo al formulario -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Vincula las fuentes de Material Icons para usar íconos en el botón -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Agregar Cliente</h2>
+  <!-- Formulario para agregar un nuevo cliente -->
+  <!-- th:action se utiliza para definir la URL a la que se enviará el formulario -->
+  <!-- th:object se utiliza para enlazar el formulario con el objeto cliente en el modelo -->
+  <form th:action="@{/clientes/guardar}" method="post" th:object="${cliente}" class="mt-4">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <!-- th:field enlaza el campo del formulario con la propiedad 'nombre' del objeto cliente -->
+      <input type="text" th:field="*{nombre}" class="form-control" id="nombre" placeholder="Ingrese el nombre" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <!-- th:field enlaza el campo del formulario con la propiedad 'email' del objeto cliente -->
+      <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="Ingrese el email" required />
+    </div>
+    <div class="form-group">
+      <label for="tipo">Tipo:</label>
+      <!-- th:field enlaza el campo de selección con la propiedad 'tipo' del objeto cliente -->
+      <select th:field="*{tipo}" class="form-control" id="tipo" required>
+        <!-- Opción predeterminada que no puede ser seleccionada -->
+        <option value="" disabled selected>Seleccione el tipo</option>
+        <option value="premium">Cliente Premium</option>
+        <option value="regular">Cliente Regular</option>
+      </select>
+    </div>
+    <!-- Botón para enviar el formulario -->
+    <button type="submit" class="btn btn-primary">
+      <i class="material-icons">save</i> Guardar
+    </button>
+    <!-- Enlace para volver a la lista de clientes -->
+    <a class="btn btn-secondary" th:href="@{/clientes}" role="button">
+      <i class="material-icons">arrow_back</i> Volver
+    </a>
+  </form>
+</div>
+
+<!-- Scripts de Bootstrap y jQuery para el funcionamiento de componentes interactivos -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

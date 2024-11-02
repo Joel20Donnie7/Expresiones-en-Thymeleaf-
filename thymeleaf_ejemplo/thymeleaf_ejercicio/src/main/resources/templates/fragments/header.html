@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Fragmento de Encabezado</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Estilos personalizados para el encabezado */
+    body {
+      background-color: #e9ecef; /* Fondo gris claro para el cuerpo */
+    }
+    .header-container {
+      background-color: #007bff; /* Fondo azul del encabezado */
+      color: white; /* Color de texto blanco */
+      padding: 20px; /* Espaciado interior */
+      border-radius: 10px; /* Bordes redondeados */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    }
+    .header-divider {
+      border-top: 3px solid #ffc107; /* Línea horizontal amarilla */
+    }
+  </style>
+</head>
+<body>
+<!-- Fragmento de Thymeleaf que define un encabezado reutilizable -->
+<div th:fragment="header" class="header-container text-center mt-4 mb-4">
+  <h1 class="display-4">
+    <i class="material-icons" style="vertical-align: middle;">fitness_center</i>
+    Bienvenido al Gimnasio
+  </h1>
+  <hr class="header-divider">
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
